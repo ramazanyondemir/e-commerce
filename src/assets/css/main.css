@@ -1,0 +1,20 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body,
+#root {
+  height: 100%;
+}
+body {
+  @apply bg-secondary;
+}
+.slide {
+  background-position-y: -50px;
+}
