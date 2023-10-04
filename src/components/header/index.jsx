@@ -10,7 +10,11 @@ export default function Header() {
   const basket = useBasket();
   return (
     <header className="flex flex-col items-center gap-y-4 py-6">
-      <img src="src/assets/images/logo.png" alt="logo" className="w-[150px]" />
+      <img
+        src="https://cdn.myikas.com/images/theme-images/7f620b2d-f0a3-42fb-8051-8e96da09afec/image_1080.webp"
+        alt="logo"
+        className="w-[150px]"
+      />
       <div className="container">
         <div className="flex justify-between px-5 bg-primary">
           <nav className="flex gap-x-4">
