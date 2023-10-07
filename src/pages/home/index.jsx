@@ -1,13 +1,9 @@
 import { Products } from "../../api/product";
 import { addProduct } from "../../stores/basket/actions";
-import { useBasket } from "../../stores/basket/hooks";
 
 export default function Home() {
-  const basket = useBasket();
-
   const addItem = (product) => {
     addProduct(product);
-    alert("ürün eklendi");
   };
 
   return (
