@@ -4,7 +4,7 @@ export const Products = [
     productName: "Filtre Kahve",
     productPhotos:
       "https://cdn.getir.com/product/6308a3aba93f5ea5b4cd1b69_tr_1661513166846.jpeg",
-    price: 2000,
+    price: 200.32,
     categorie: [
       {
         categorieName: "Kahve",
