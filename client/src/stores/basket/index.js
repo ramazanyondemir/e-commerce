@@ -17,6 +17,7 @@ const initialState = {
         stock: 5,
       },
       count: 3,
+      totalAmount: 2000,
     },
   ],
 };
@@ -53,7 +54,11 @@ const basketSlice = createSlice({
     _countChange: (state, action) => {
       state.basket.forEach((item) => {
         if (item.product.id === action.payload.id) {
-          item.count = action.payload.value;
+          if (action.payload.value.length > 0) {
+            item.count = parseInt(action.payload.value);
+          } else {
+            item.count = "";
+          }
         }
       });
     },

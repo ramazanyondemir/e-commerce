@@ -1,31 +1,22 @@
 import express from "express";
-import mongoose from "mongoose";
+import cors from "cors";
+import dotenv from "dotenv";
+import connectDb from "./db.js";
+import authRouter from "./routes/auth.js";
+
+dotenv.config();
+
 const app = express();
-const port = 3000;
+const port = process.env.PORT;
 
-// getting - started.js;
+connectDb();
 
-main().catch((err) => console.log(err));
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true })); // URL kodlanmış veri (form verileri) analizi için Express'in kendi body-parser'ını kullanmak
 
-async function main() {
-  await mongoose.connect("mongodb://127.0.0.1:27017/deneme");
-
-  const kittySchema = new mongoose.Schema({
-    name: String,
-  });
-
-  const Kitten = mongoose.model("Kitten", kittySchema);
-
-  const silence = new Kitten({ name: "Silence" });
-  console.log(silence.name);
-}
-
-app.get("/", (req, res) => {
-  const ipAddress = req.socket.remoteAddress;
-  console.log("ip: ", ipAddress);
-  res.send(ipAddress);
-});
+app.use("/auth", authRouter);
 
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`Server ${port}'unda çalışıyor`);
 });

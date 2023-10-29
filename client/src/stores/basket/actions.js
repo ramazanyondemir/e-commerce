@@ -7,8 +7,8 @@ import {
   _removeProduct,
 } from ".";
 
-export const addProduct = (product, count = 1) =>
-  store.dispatch(_addProduct({ product, count }));
+export const addProduct = (product, count = 1, totalAmount) =>
+  store.dispatch(_addProduct({ product, count, totalAmount }));
 
 export const incrementCount = (id) => {
   store.dispatch(_countIncrement(id));
