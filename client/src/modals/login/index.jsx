@@ -1,40 +1,28 @@
 import { modal } from "~/stores/modal/actions";
-import { setLogin, setPassword, setEmail } from "~/stores/auth/actions";
-import { useLogin } from "~/stores/auth/hooks";
+import { useState } from "react";
+import { loginUser } from "~/stores/auth/actions";
+import { useUserError } from "../../stores/auth/hooks";
 
 export default function LoginModal() {
-  const { email, password } = useLogin();
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
 
-  // const navigate = useNavigate();
+  const den = useUserError();
+  console.log(den);
 
-  const handleSubmit = (e) => {
+  const handleLogin = (e) => {
     e.preventDefault();
+
     const data = {
       email,
       password,
     };
 
-    fetch("http://localhost:3000/auth/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    })
-      .then((response) => response.json())
-      .then((user) => {
-        setLogin(user.status);
+    loginUser(data).then((x) => {
+      if (!x.error) {
         modal.destroy();
-      })
-      .catch((err) => console.log(err));
-
-    // if (name == "ramazan" && password == "123") {
-    //   // navigate("/denemeeee");
-    //   setLogin(true);
-    //   modal.destroy();
-    // } else {
-    //   return null;
-    // }
+      }
+    });
   };
 
   return (
@@ -50,7 +38,7 @@ export default function LoginModal() {
           <h2 className="text-black">Login</h2>
         </div>
         <form
-          onSubmit={(e) => handleSubmit(e)}
+          onSubmit={(e) => handleLogin(e)}
           className="flex flex-col gap-y-2"
         >
           <input
@@ -59,16 +47,14 @@ export default function LoginModal() {
             type="email"
             name="email"
             placeholder="E-posta"
-            id="email"
             className="border p-1"
           />
           <input
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             type="password"
-            name="login"
+            name="password"
             placeholder="Password"
-            id="login"
             className="border p-1"
           />
           <button type="submit" className="py-2 border bg-green-600 text-white">
@@ -76,8 +62,14 @@ export default function LoginModal() {
           </button>
         </form>
 
-        <div>
-          Hemen <span onClick={() => modal.append("register")}>Üye Ol</span>
+        <div className="mt-4 text-right">
+          Hemen{" "}
+          <span
+            onClick={() => modal.append("register")}
+            className="cursor-pointer text-blue-500 font-bold underline"
+          >
+            Üye Ol
+          </span>
         </div>
       </div>
     </div>

@@ -4,7 +4,7 @@ import { BiSolidUser } from "react-icons/bi";
 export default function LoginMenu() {
   return (
     <div
-      className="flex gap-x-2 p-3 text-white hover:text-orange-900"
+      className="flex gap-x-2 p-3 cursor-pointer rounded"
       onClick={() => modal.append("login")}
     >
       <BiSolidUser size={26} />

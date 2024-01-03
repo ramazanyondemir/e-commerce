@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;1,400&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -6,6 +8,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: "Noto Serif", serif;
 }
 
 body,
@@ -17,4 +20,15 @@ body {
 }
 .slide {
   background-position-y: -50px;
+}
+@media (min-width: 992px) {
+  .sticky-header {
+    border-bottom: solid 1px #ebebeb;
+    animation: sticky-transition-show 0.2s forwards linear;
+    width: 100%;
+    position: fixed;
+    right: 0;
+    top: 0;
+    z-index: 333333;
+  }
 }

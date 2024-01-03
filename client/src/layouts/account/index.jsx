@@ -1,14 +1,14 @@
-import { Outlet } from "react-router-dom";
 import Header from "~/components/header";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { useModals } from "~/stores/modal/hooks";
 import Modal from "~/modals/index.jsx";
-import { useEffect } from "react";
+import { Outlet } from "react-router-dom";
+import AccountMenu from "../../components/aside";
 import { useAuth } from "../../stores/auth/hooks";
-import { setUser } from "../../stores/auth/actions";
+import { useEffect } from "react";
 import Cookies from "js-cookie";
+import { setUser } from "../../stores/auth/actions";
 
-export default function WebLayout() {
+export default function AccountLayout() {
   const modals = useModals();
   const isLogin = useAuth();
 
@@ -30,13 +30,16 @@ export default function WebLayout() {
         })
         .catch((err) => console.log("err", err));
     }
-  }, []);
+  }, [isLogin]);
 
   return (
     <>
       {modals.length > 0 && <Modal />}
       <Header />
-      <Outlet />
+      <div className="container mx-auto my-6 flex">
+        <AccountMenu />
+        <Outlet />
+      </div>
     </>
   );
 }

@@ -1,19 +1,17 @@
 import { modal } from "~/stores/modal/actions";
-import {
-  setLogin,
-  setPassword,
-  setName,
-  setEmail,
-  setPhone,
-  setSurname,
-} from "~/stores/auth/actions";
-import { useLogin } from "~/stores/auth/hooks";
+import { useState } from "react";
+// import { setUser } from "../../stores/auth/actions";
 
 export default function signUpModal() {
-  const { name, surname, email, phone, password } = useLogin().user;
+  const [password, setPassword] = useState("");
+  const [email, setEmail] = useState("");
+  const [name, setName] = useState("");
+  const [surname, setSurname] = useState("");
+  const [phone, setPhone] = useState("");
 
-  const handleSubmit = (e) => {
+  const handleRegister = (e) => {
     e.preventDefault();
+
     const data = {
       name,
       surname,
@@ -21,7 +19,6 @@ export default function signUpModal() {
       email,
       phone,
     };
-    console.log(data);
 
     fetch("http://localhost:3000/auth/register", {
       method: "POST",
@@ -31,8 +28,9 @@ export default function signUpModal() {
       body: JSON.stringify(data),
     })
       .then((response) => response.json())
-      .then((data) => setLogin(data.status))
+      .then((data) => setUser({ ...data.user, isLogin: true }))
       .catch((err) => console.log(err));
+    modal.destroy();
   };
 
   return (
@@ -44,11 +42,11 @@ export default function signUpModal() {
         X
       </button>
       <div className="border-bottom">
-        <div className="p-2">
-          <h2 className="text-black">Sign-up</h2>
+        <div className="mb-2">
+          <h2 className="text-black">Üye Ol</h2>
         </div>
         <form
-          onSubmit={(e) => handleSubmit(e)}
+          onSubmit={(e) => handleRegister(e)}
           className="flex flex-col gap-y-2"
         >
           <input

@@ -14,7 +14,7 @@ export default function Basket() {
   const formatter = new Intl.NumberFormat("tr-TR");
 
   return (
-    <div className="container flex justify-between gap-x-3 mx-auto lg:flex-row">
+    <div className="container flex justify-between gap-x-3 mx-auto lg:flex-row mt-4">
       <div className="flex flex-col w-full gap-y-3 rounded lg:max-w-[928px]">
         {basket.map((item, key) => (
           <div
@@ -74,7 +74,7 @@ export default function Basket() {
         ))}
       </div>
       <div className="bg-white px-3 py-2 border shadow rounded lg:self-start lg:w-[270px]">
-        <h1 className="text-2xl">Sepet Özeti</h1>
+        <div className="text-2xl">Sepet Özeti</div>
       </div>
     </div>
   );

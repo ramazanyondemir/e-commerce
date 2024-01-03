@@ -1,47 +1,71 @@
-import { createSlice } from "@reduxjs/toolkit";
-const initialState = {
-  user: {
-    name: "",
-    surname: "",
-    password: "",
-    email: "",
-    phone: "",
-    login: false,
-  },
-};
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+
+export const _loginUser = createAsyncThunk(
+  "auth/loginUser",
+  async (userData, { rejectWithValue }) => {
+    try {
+      const response = await fetch("http://localhost:3000/auth/login", {
+        method: "POST",
+        credentials: "include",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(userData),
+      });
+
+      const data = await response.json();
+
+      // response sunucudan dönen 4** ve 5** hataları gelirse "ok" değeri false gelir
+      if (response.ok) {
+        return { ...data.user, isLogin: true };
+      } else {
+        return rejectWithValue(data.message);
+      }
+    } catch (error) {
+      return rejectWithValue(
+        error.response ? error.response.data : error.message
+      );
+    }
+  }
+);
 
 const authSlice = createSlice({
   name: "auth",
-  initialState,
+  initialState: {
+    user: { name: "", surname: "", email: "", phone: "", isLogin: false },
+    error: null,
+    isLoading: false,
+  },
   reducers: {
-    _setName: (state, action) => {
-      state.user.name = action.payload;
+    _setUser: (state, action) => {
+      state.user = action.payload;
     },
-    _setPassword: (state, action) => {
-      state.user.password = action.payload;
+    _logoutUser: (state) => {
+      state.user = {
+        name: "",
+        surname: "",
+        email: "",
+        phone: "",
+        isLogin: false,
+      };
     },
-    _setSurname: (state, action) => {
-      state.user.surname = action.payload;
-    },
-    _setEmail: (state, action) => {
-      state.user.email = action.payload;
-    },
-    _setPhone: (state, action) => {
-      state.user.phone = action.payload;
-    },
-    _login: (state, action) => {
-      state.user.login = action.payload;
-    },
+  },
+  extraReducers: (builder) => {
+    builder
+      .addCase(_loginUser.pending, (state) => {
+        state.isLoading = true;
+        state.error = null;
+      })
+      .addCase(_loginUser.fulfilled, (state, action) => {
+        state.user = action.payload;
+        state.isLoading = false;
+      })
+      .addCase(_loginUser.rejected, (state, action) => {
+        state.error = action.payload;
+        state.isLoading = false;
+      });
   },
 });
 
-export const {
-  _login,
-  _setPassword,
-  _setName,
-  _setSurname,
-  _setEmail,
-  _setPhone,
-} = authSlice.actions;
-
+export const { _logoutUser, _setUser } = authSlice.actions;
 export default authSlice.reducer;
