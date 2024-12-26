@@ -42,7 +42,7 @@ export default function PrivateRoute({ children }) {
   }, [isLogin]);
 
   if (isLoading) {
-    return <div>Yükleniyor...</div>; // veya bir yükleme bileşeni
+    return <div>Yükleniyor...</div>;
   }
 
   if (!isLogin) {

@@ -36,7 +36,7 @@ export default function AccountLayout() {
     <>
       {modals.length > 0 && <Modal />}
       <Header />
-      <div className="container mx-auto my-6 flex">
+      <div className="container mx-auto my-6 flex items-start">
         <AccountMenu />
         <Outlet />
       </div>

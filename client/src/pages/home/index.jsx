@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Products } from "../../api/product";
 import Slider from "../../components/slider";
 import { addProduct } from "../../stores/basket/actions";

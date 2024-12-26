@@ -7,9 +7,6 @@ export default function LoginModal() {
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
 
-  const den = useUserError();
-  console.log(den);
-
   const handleLogin = (e) => {
     e.preventDefault();
 

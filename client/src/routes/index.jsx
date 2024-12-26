@@ -21,14 +21,6 @@ export const router = createBrowserRouter([
         path: "/sepet",
         element: <Basket />,
       },
-      // {
-      //   path: "/hesabim",
-      //   element: (
-      //     <PrivateRoute>
-      //       <Account />
-      //     </PrivateRoute>
-      //   ),
-      // },
     ],
   },
   {

@@ -2,7 +2,7 @@ import { NavLink } from "react-router-dom";
 
 export default function AccountMenu() {
   return (
-    <aside className="max-w-xs w-full border">
+    <aside className="hidden lg:block max-w-xs w-full border">
       <nav className="flex flex-col w-full gap-y-2">
         <NavLink
           to="/hesabim"

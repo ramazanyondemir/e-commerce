@@ -10,6 +10,9 @@
   box-sizing: border-box;
   font-family: "Noto Serif", serif;
 }
+*:focus {
+  outline: none;
+}
 
 body,
 #root {
