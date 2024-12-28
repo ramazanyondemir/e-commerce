@@ -4,7 +4,7 @@ export const _loginUser = createAsyncThunk(
   "auth/loginUser",
   async (userData, { rejectWithValue }) => {
     try {
-      const response = await fetch(`${import.meta.env.BASE_URL}/auth/login`, {
+      const response = await fetch(`${import.meta.env.API_URL}/auth/login`, {
         method: "POST",
         credentials: "include",
         headers: {

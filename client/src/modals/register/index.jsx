@@ -20,7 +20,7 @@ export default function signUpModal() {
       phone,
     };
 
-    fetch(`${import.meta.env.BASE_URL}/auth/register`, {
+    fetch(`${import.meta.env.API_URL}/auth/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

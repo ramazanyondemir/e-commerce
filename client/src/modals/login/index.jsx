@@ -34,10 +34,7 @@ export default function LoginModal() {
         <div className="p-2">
           <h2 className="text-black">Login</h2>
         </div>
-        <form
-          onSubmit={(e) => handleLogin(e)}
-          className="flex flex-col gap-y-2"
-        >
+        <form onSubmit={(e) => handleLogin(e)} className="flex flex-col gap-y-2">
           <input
             value={email}
             onChange={(e) => setEmail(e.target.value)}

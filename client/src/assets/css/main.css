@@ -8,18 +8,18 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Noto Serif", serif;
+  @apply m-0 p-0 box-border;
 }
 *:focus {
-  outline: none;
+  @apply outline-none;
 }
 
 body,
 #root {
-  height: 100%;
+  @apply h-full;
 }
 body {
-  @apply bg-secondary;
+  @apply font-sans bg-secondary;
 }
 .slide {
   background-position-y: -50px;

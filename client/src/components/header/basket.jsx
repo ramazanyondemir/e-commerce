@@ -2,7 +2,7 @@ import { BiBasket } from "react-icons/bi";
 import { Link } from "react-router-dom";
 import { useBasket } from "~/stores/basket/hooks";
 
-export default function Basket({}) {
+export default function Basket() {
   const basket = useBasket();
 
   return (
@@ -13,7 +13,6 @@ export default function Basket({}) {
         </span>
       )}
       <BiBasket size={26} />
-      <div className="relative">Sepetim</div>
     </Link>
   );
 }

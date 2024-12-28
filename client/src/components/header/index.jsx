@@ -5,6 +5,7 @@ import LoginMenu from "./loginMenu";
 import Basket from "./basket";
 import { BiSearch } from "react-icons/bi";
 import logo from "~/assets/images/logo.png";
+import { HEADER_MENUS } from "../../constants/menus";
 
 export default function Header() {
   const isLogin = useAuth();
@@ -35,18 +36,11 @@ export default function Header() {
       <div className="container border-t border-link">
         <div className="flex justify-between px-5 bg-primary">
           <nav className="flex gap-x-4">
-            <Link to="/" className="p-3 text-link">
-              Kurumsal
-            </Link>
-            <Link to="/" className="p-3 text-link">
-              Filtre Kahve
-            </Link>
-            <Link to="/" className="p-3 text-link">
-              Çekirdek Kahve
-            </Link>
-            <Link to="/" className="p-3 text-link">
-              Demleme Ekipmanları
-            </Link>
+            {HEADER_MENUS.map((item) => (
+              <Link to="/" className="p-3 text-link">
+                {item.title}
+              </Link>
+            ))}
           </nav>
         </div>
       </div>

@@ -7,6 +7,7 @@ import { useEffect } from "react";
 import { useAuth } from "../../stores/auth/hooks";
 import { setUser } from "../../stores/auth/actions";
 import Cookies from "js-cookie";
+import { API_URL } from "../../constants";
 
 export default function WebLayout() {
   const modals = useModals();
@@ -16,7 +17,7 @@ export default function WebLayout() {
     let token = Cookies.get("token");
 
     if (!isLogin && token) {
-      fetch(`${import.meta.env.BASE_URL}/me`, {
+      fetch(`${API_URL}/me`, {
         method: "GET",
         credentials: "include",
         headers: {

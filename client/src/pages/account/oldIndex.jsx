@@ -19,7 +19,7 @@ export default function UserInfo() {
       surname,
     };
 
-    const response = await fetch(`${import.meta.env.BASE_URL}/user/info`, {
+    const response = await fetch(`${import.meta.env.API_URL}/user/info`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

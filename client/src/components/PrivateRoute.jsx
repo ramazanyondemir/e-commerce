@@ -2,17 +2,16 @@ import { useEffect, useState } from "react";
 import Cookies from "js-cookie";
 import { useAuth } from "../stores/auth/hooks";
 import { setUser } from "../stores/auth/actions";
+import { API_URL } from "../constants";
 
 export default function PrivateRoute({ children }) {
   const [isLoading, setIsLoading] = useState(true);
   const isLogin = useAuth();
-  const HOST = import.meta.env.BASE_URL + import.meta.env.PORT;
-  console.log(HOST);
 
   const token = Cookies.get("token");
   useEffect(() => {
     if (!isLogin && token) {
-      fetch(`${HOST}/me`, {
+      fetch(`${API_URL}/me`, {
         method: "GET",
         credentials: "include",
         headers: {

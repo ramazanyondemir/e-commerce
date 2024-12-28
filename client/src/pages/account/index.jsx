@@ -5,7 +5,7 @@ import { Form, Formik } from "formik";
 import InputField from "../../components/form/InputField";
 import axios from "axios";
 import { userInfoSchema } from "../../validations/user/userSchema";
-import { BASE_URL } from "../../constants/index.js";
+import { API_URL } from "../../constants/index.js";
 import SelectField from "../../components/form/DateField.jsx";
 import YearsOption from "../../components/form/YearOption.jsx";
 import MonthOption from "../../components/form/MonthOption.jsx";
@@ -30,7 +30,7 @@ export default function UserInfo() {
             alert(JSON.stringify(values, null, 2));
             // try {
             //   const { data } = await axios.post(
-            //     `${BASE_URL}/user/den`,
+            //     `${API_URL}/user/den`,
             //     values,
             //     {
             //       headers: {

@@ -8,7 +8,7 @@ export default function LoginMenu() {
       onClick={() => modal.append("login")}
     >
       <BiSolidUser size={26} />
-      <div>Giriş Yap</div>
+      <span>Giriş Yap</span>
     </div>
   );
 }
