@@ -20,7 +20,7 @@ export default function signUpModal() {
       phone,
     };
 
-    fetch("http://localhost:3000/auth/register", {
+    fetch(`${import.meta.env.BASE_URL}/auth/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -45,10 +45,7 @@ export default function signUpModal() {
         <div className="mb-2">
           <h2 className="text-black">Üye Ol</h2>
         </div>
-        <form
-          onSubmit={(e) => handleRegister(e)}
-          className="flex flex-col gap-y-2"
-        >
+        <form onSubmit={(e) => handleRegister(e)} className="flex flex-col gap-y-2">
           <input
             value={name}
             onChange={(e) => setName(e.target.value)}

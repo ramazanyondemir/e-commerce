@@ -16,7 +16,7 @@ export default function WebLayout() {
     let token = Cookies.get("token");
 
     if (!isLogin && token) {
-      fetch("http://localhost:3000/me", {
+      fetch(`${import.meta.env.BASE_URL}/me`, {
         method: "GET",
         credentials: "include",
         headers: {

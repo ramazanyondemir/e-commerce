@@ -4,7 +4,7 @@ export const _loginUser = createAsyncThunk(
   "auth/loginUser",
   async (userData, { rejectWithValue }) => {
     try {
-      const response = await fetch("http://localhost:3000/auth/login", {
+      const response = await fetch(`${import.meta.env.BASE_URL}/auth/login`, {
         method: "POST",
         credentials: "include",
         headers: {
@@ -22,9 +22,7 @@ export const _loginUser = createAsyncThunk(
         return rejectWithValue(data.message);
       }
     } catch (error) {
-      return rejectWithValue(
-        error.response ? error.response.data : error.message
-      );
+      return rejectWithValue(error.response ? error.response.data : error.message);
     }
   }
 );
