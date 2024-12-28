@@ -8,19 +8,23 @@ BASE_URL=http://localhost:3000
 
 # Server ortam değişkenleri
 
-# Veritabanı bağlantı bilgileri
+### Veritabanı Bağlantı Bilgileri
 
-DB_URI=<MONGO_DB_URI> # Örnek: e-commerce.x.mongodb.net
+DB_URI=<MONGO_DB_URI>
+# Örnek: e-commerce.x.mongodb.net
+
 DB_APP_NAME=e-commerce
-DB_USER=<DB_NAME>
+
+DB_USER=<DB_USER>
+
+DB_NAME=<DB_NAME>
+
 DB_PASSWORD=<DB_PASS>
 
 # Sunucu ve client ayarları
 
 PORT=3000
-BASE_URL=http://localhost
+API_URL=http://localhost
 CLIENT_PORT=5173
-
-# JWT için güvenli secret (örnek değer, gerçek bir projede güçlü bir secret kullanın)
 
 JWT_SECRET=<SECRET>
