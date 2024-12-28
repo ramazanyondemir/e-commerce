@@ -13,7 +13,7 @@ BASE_URL=http://localhost:3000
 DB_URI=<MONGO_DB_URI>
 # Örnek: e-commerce.x.mongodb.net
 
-DB_APP_NAME=e-commerce
+DB_APP_NAME=<DB_APP_NAME>
 
 DB_USER=<DB_USER>
 
