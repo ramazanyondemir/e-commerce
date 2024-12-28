@@ -37,7 +37,7 @@ export default function Header() {
         <div className="flex justify-between px-5 bg-primary">
           <nav className="flex gap-x-4">
             {HEADER_MENUS.map((item) => (
-              <Link to="/" className="p-3 text-link">
+              <Link to={item.path} className="p-3 text-link">
                 {item.title}
               </Link>
             ))}

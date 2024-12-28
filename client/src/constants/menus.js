@@ -16,7 +16,7 @@ export const HEADER_MENUS = [
   },
   {
     title: "Demleme Ekipmanları",
-    path: "/demleme-ekipmanları",
+    path: "/demleme-ekipmanlari",
     active: true,
   },
 ];
