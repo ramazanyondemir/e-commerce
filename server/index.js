@@ -17,7 +17,7 @@ connectDb();
 app.use(
   cors({
     // Sadece localhost:5173 origin'i sunucuya istek gönderebilir diğer originler erişemez.
-    origin: `${import.meta.env.BASE_URL}/${import.meta.env.CLIENT_PORT}`,
+    origin: `${process.env.BASE_URL}/${process.env.CLIENT_PORT}`,
     credentials: true,
   })
 );

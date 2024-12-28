@@ -28,7 +28,7 @@ export const login = async (req, res) => {
         _uid: user._id.toString(),
         email,
       },
-      "Den"
+      process.env.JWT_SECRET
     );
 
     return res
@@ -64,7 +64,7 @@ export const register = async (req, res) => {
 export const me = async (req, res) => {
   const token = req.headers.authorization.split(" ")[1];
 
-  jwt.verify(token, "Den", async (err, decoded) => {
+  jwt.verify(token, procces.env.JWT_SECRET, async (err, decoded) => {
     if (err) {
       return res.status(401).json({ message: "Geçersiz token" });
     } else {
