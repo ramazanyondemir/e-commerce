@@ -1,10 +1,11 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { API_URL } from "../../constants";
 
 export const _loginUser = createAsyncThunk(
   "auth/loginUser",
   async (userData, { rejectWithValue }) => {
     try {
-      const response = await fetch(`${import.meta.env.API_URL}/auth/login`, {
+      const response = await fetch(`${API_URL}/auth/login`, {
         method: "POST",
         credentials: "include",
         headers: {
