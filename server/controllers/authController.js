@@ -66,7 +66,7 @@ export const register = async (req, res) => {
 export const me = async (req, res) => {
   const token = req.headers.authorization.split(" ")[1];
 
-  jwt.verify(token, procces.env.JWT_SECRET, async (err, decoded) => {
+  jwt.verify(token, process.env.JWT_SECRET, async (err, decoded) => {
     if (err) {
       return res.status(401).json({ message: "Geçersiz token" });
     } else {
