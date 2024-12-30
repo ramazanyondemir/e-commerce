@@ -1,7 +1,6 @@
 import { modal } from "~/stores/modal/actions";
 import { useState } from "react";
 import { loginUser } from "~/stores/auth/actions";
-import { useUserError } from "../../stores/auth/hooks";
 
 export default function LoginModal() {
   const [password, setPassword] = useState("");
@@ -51,7 +50,11 @@ export default function LoginModal() {
             placeholder="Password"
             className="border p-1"
           />
-          <button type="submit" className="py-2 border bg-green-600 text-white">
+          <button
+            type="submit"
+            className="py-2 border bg-green-600 text-white"
+            onClick={handleLogin}
+          >
             Giriş Yap
           </button>
         </form>
