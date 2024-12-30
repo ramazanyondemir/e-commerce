@@ -1,23 +1,33 @@
 import mongoose, { Schema } from "mongoose";
-import bcrypt from "bcryptjs";
 
 const productSchema = new Schema(
   {
     name: {
       type: String,
       required: true,
+      trim: true,
     },
-    categories: {
-      type: String,
+    image: String,
+    categories: [
+      {
+        type: String,
+        required: true,
+      },
+    ],
+    price: {
+      type: Number,
       required: true,
+      min: 0,
     },
-    seller: {
-      type: String,
+    stock: {
+      type: Number,
       required: true,
+      min: 0,
     },
-    password: {
+    description: {
       type: String,
-      required: true,
+      required: false,
+      trim: true,
     },
   },
   {
@@ -25,15 +35,6 @@ const productSchema = new Schema(
   }
 );
 
-userSchema.pre("save", function (next) {
-  const user = this;
-
-  bcrypt.hash(user.password, 10, (err, hash) => {
-    user.password = hash;
-    next();
-  });
-});
-
-// userSchema.index({ createdAt: 1 }, { expires: "7d" });
-
-export const User = mongoose.model("User", userSchema);
+// add index
+productSchema.index({ name: 1, seller: 1 });
+export const Product = mongoose.model("Product", productSchema);
