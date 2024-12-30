@@ -1,5 +1,6 @@
 import { modal } from "~/stores/modal/actions";
 import { useState } from "react";
+import { API_URL } from "../../constants";
 // import { setUser } from "../../stores/auth/actions";
 
 export default function signUpModal() {
@@ -20,7 +21,7 @@ export default function signUpModal() {
       phone,
     };
 
-    fetch(`${import.meta.env.API_URL}/auth/register`, {
+    fetch(`${API_URL}/auth/register`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
