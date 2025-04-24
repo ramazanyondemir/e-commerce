@@ -1,5 +1,5 @@
 import { ChevronDown } from "lucide-react";
-import MENUS from "@/app/lib/DUMMY_DATA.json";
+import MENUS from "@/app/lib/CATEGORY_NAVBAR.json";
 import Link from "next/link";
 
 export default function CategoryNavBar() {
@@ -7,7 +7,7 @@ export default function CategoryNavBar() {
     <div className="py-4">
       <div className="flex">
         <div className="relative">
-          <select className="appearance-none py-3 rounded-md outline-none font-medium transition-shadow focus:shadow-(--input-box-shadow) lg:mr-8 lg:pl-3 xl:pr-7">
+          <select className="appearance-none py-3 rounded-md outline-none font-medium transition-shadow focus:shadow-(--input-box-shadow) lg:mr-8 xl:pr-7">
             <option value="all">Shop by Departments</option>
             <option value="groceries">Groceries</option>
             <option value="drinks">Drinks</option>
