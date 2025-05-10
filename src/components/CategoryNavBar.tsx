@@ -1,5 +1,5 @@
 import { ChevronDown } from "lucide-react";
-import MENUS from "@/app/lib/CATEGORY_NAVBAR.json";
+import MENUS from "@/lib/CATEGORY_NAVBAR.json";
 import Link from "next/link";
 
 export default function CategoryNavBar() {

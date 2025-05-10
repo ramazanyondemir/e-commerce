@@ -1,0 +1,20 @@
+[
+  {
+    "id": 0,
+    "title": "Fresh Smoothie & Summer Juice",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dignissim massa diam elementum.",
+    "link": "/"
+  },
+  {
+    "id": 1,
+    "title": "Fresh Smoothie & Summer Juice",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dignissim massa diam elementum.",
+    "link": "/"
+  },
+  {
+    "id": 2,
+    "title": "Heinz Tomato Ketchup",
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Dignissim massa diam elementum.",
+    "link": "/"
+  }
+]
