@@ -3,4 +3,5 @@ export interface Slide {
   title: string;
   description: string;
   link: string;
+  slide_img: string;
 }
