@@ -1,7 +1,7 @@
 import "swiper/css";
 import { openSans } from "@/lib/fonts";
-import PromotionCarousel from "./promotion-section/PromotionCarousel";
-import PromotionCategories from "./promotion-section/PromotionCategories";
+import PromotionCarousel from "./PromotionCarousel";
+import PromotionCategories from "./PromotionCategories";
 
 export default function PromoSection() {
   return (

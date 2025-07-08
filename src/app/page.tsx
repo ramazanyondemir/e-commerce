@@ -1,7 +1,7 @@
+import PromoSection from "@/components/promotion-section/PromoSection";
 import CategoryNavBar from "../components/CategoryNavBar";
 import Container from "../components/Container";
 import Header from "../components/header";
-import PromoSection from "../components/PromoSection";
 
 export default function Home() {
   return (
